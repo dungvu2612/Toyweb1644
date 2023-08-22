@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Lego</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  
+  <div class="container col-md-8 mt-5 mb-5 card bg-light">
+    <form action="/lego/edit/{{ lego._id }}" method="post">
+      <h1 class="text text-dark text-center text-uppercase mt-3">Edit Lego</h1>
+      <div class="form-group mt-3">
+        <label class="h5 text-dark" for="">Name</label>
+        <input class="form-control" type="text" name="name" value="{{ lego.name }}" required>
+      </div>
+      <div class="form-group mt-3">
+        <label class="h5 text-dark" for="">Description</label>
+        <input class="form-control" type="text" name="description" value="{{ lego.description }}" required>
+      </div>
+      <div class="form-group mt-3">
+        <label class="h5 text-dark" for="">Price</label>
+        <input class="form-control" type="number" name="price" value="{{ lego.price }}" required step="0.01">
+      </div>
+      <div class="form-group mt-3">
+        <label class="h5 text-dark" for="">Image URL</label><br>
+        <img src="{{ lego.imageUrl }}" width="1" height="1">
+        <input class="form-control" type="url" name="imageUrl" value="{{ lego.imageUrl }}" required>
+      </div>
+      <div class="form-group mt-3">
+        <label class="h5 text-dark" for="">Quantity</label>
+        <input class="form-control" type="number" name="quantity" value="{{ lego.quantity }}" required>
+      </div>
+      <div class="form-group mt-3">
+        <label class="h5 text-dark" for="">Best Seller</label><br>
+        <input type="radio" name="bestSeller" value="true" {{#if lego.bestSeller}}checked{{/if}}>
+        <input type="radio" name="bestSeller" value="false" {{#unless lego.bestSeller}}checked{{/unless}}>
+      </div>
+      <div class="form-group text-center mt-3 mb-3">
+        <input class="btn btn-primary" type="submit" value="Edit">
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

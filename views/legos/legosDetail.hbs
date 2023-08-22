@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Detail</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+  <style>
+    .lego-detail {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .lego-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .back-button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Lego Detail</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="lego-detail">
+          <img src="{{lego.imageUrl}}" class="lego-image" alt="{{lego.name}}">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="lego-detail">
+          <h2 class="mb-3">{{lego.name}}</h2>
+          <p><strong>Description: </strong>{{lego.description}}</p>
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Price:</strong> {{lego.price}} USD</p>
+              <p><strong>Quantity:</strong> {{lego.quantity}}</p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Best Seller:</strong> {{#if lego.bestSeller}}Yes{{else}}No{{/if}}</p>
+              <!-- Add more details here if needed -->
+            </div>
+          </div>
+          <div class="back-button">
+            <a href="/legosList" class="btn btn-primary">Back to Legos List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

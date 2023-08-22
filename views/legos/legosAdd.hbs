@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{title}}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    /* Custom Add Lego Form Styles */
+    .add-lego-form {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #f8f9fa;
+    }
+
+    .add-lego-form label {
+      color: #000;
+    }
+
+    .add-lego-form input[type="text"],
+    .add-lego-form input[type="number"],
+    .add-lego-form input[type="url"] {
+      color: #000;
+    }
+
+    .add-lego-form input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    .add-lego-form .btn-primary {
+      background-color: blue;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- Add Lego Form -->
+  <div class="container col-md-8 mt-3 mb-3 card add-lego-form">
+    <form action="/lego/add" method="post">
+      <h1 class="text-center text-uppercase mt-3 mb-3">Add New Lego</h1>
+      <div class="form-group">
+         <label class="h5" for="name">Name</label>
+         <input class="form-control" type="text" name="name" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="description">Description</label>
+         <input class="form-control" type="text" name="description" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="price">Price</label>
+         <input class="form-control" type="number" name="price" step="0.01" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="imageUrl">Image URL</label><br>
+         <input class="form-control" type="url" name="imageUrl" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="quantity">Quantity</label>
+         <input class="form-control" type="number" name="quantity" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="bestSeller">Best Seller</label><br>
+         <input type="radio" name="bestSeller" value="true"> Yes
+         <input type="radio" name="bestSeller" value="false"> No
+      </div>
+      <div class="form-group text-center mt-3 mb-3">
+         <input class="btn btn-primary" type="submit" value="Add">
+      </div>
+    </form>
+  </div>
+    
+</body>
+</html>

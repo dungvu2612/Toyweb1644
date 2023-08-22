@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Toys</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+  <style>
+    .product-card {
+      width: 100%;
+      padding: 15px;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      max-height: 150px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      margin-right: 10px;
+    }
+
+    .cart-icon {
+      font-size: 24px;
+    }
+
+    /* Điều chỉnh layout cho giỏ hàng */
+    .cart-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .cart-item {
+      width: 23%; /* 1/4 của chiều rộng để chứa 4 sản phẩm trên 1 hàng */
+      margin-bottom: 20px;
+    }
+
+    .cart-item img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      max-height: 180px; /* Tăng chiều cao ảnh */
+    }
+  </style>
+</head>
+<body>
+  <br>
+  <br>
+  <div class="container mt-5">
+    <div class="header">
+      <h1 class="text-left">Lego Toys</h1>
+      <form class="search-bar" action="/lego/search" method="post">
+        <input class="form-control search-input" type="search" name="keyword" placeholder="Search by name" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        <div style="width: 10px;"></div>
+        <a href="/cart" class="cart-icon">&#128722;</a>
+      </form>
+    </div>
+    <br>
+    <div class="row cart-items">
+      {{#each legos}}
+      <div class="col-md-4 mb-4 cart-item">
+        <div class="card product-card">
+          <a href="/lego/details/{{_id}}" style="text-decoration: none; color: inherit;">
+            <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}">
+            <div class="card-body">
+              <h5 class="card-title">{{name}}</h5>
+              <p class="card-text">Price: {{price}} $</p>
+              <form action="/add-to-cart" method="post">
+                <input type="hidden" name="productId" value="{{_id}}">
+                <button class="btn btn-primary" type="submit">Add to Cart</button>
+              </form>
+            </div>
+          </a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</body>
+</html>

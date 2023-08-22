@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{title}}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    /* Custom Add Doll Form Styles */
+    .add-doll-form {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #f8f9fa;
+    }
+
+    .add-doll-form label {
+      color: #000;
+    }
+
+    .add-doll-form input[type="text"],
+    .add-doll-form input[type="number"],
+    .add-doll-form input[type="url"] {
+      color: #000;
+    }
+
+    .add-doll-form input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    .add-doll-form .btn-primary {
+      background-color: blue;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- Add Doll Form -->
+  <div class="container col-md-8 mt-3 mb-3 card add-doll-form">
+    <form action="/doll/add" method="post">
+      <h1 class="text-center text-uppercase mt-3 mb-3">Add New Doll</h1>
+      <div class="form-group">
+        <label class="h5" for="name">Name</label> 
+        <input class="form-control" type="text" name="name" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="description">Description</label>
+         <input class="form-control" type="text" name="description" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="price">Price</label>
+         <input class="form-control" type="number" name="price" step="0.01" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="imageUrl">Image URL</label>
+         <input class="form-control" type="url" name="imageUrl" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="quantity">Quantity</label>
+         <input class="form-control" type="number" name="quantity" required>
+      </div>
+      <div class="form-group">
+         <label class="h5" for="bestSeller">Best Seller</label><br>
+         Yes <input type="radio" name="bestSeller" value="true">
+         No <input type="radio" name="bestSeller" value="false">
+      </div>
+      <div class="form-group text-center mt-3 mb-3">
+         <input class="btn btn-primary" type="submit" value="Add">
+      </div>
+    </form>
+  </div>
+    
+</body>
+</html>
