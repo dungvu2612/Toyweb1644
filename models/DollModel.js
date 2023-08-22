@@ -6,6 +6,8 @@ var dollSchema = mongoose.Schema({
   imageUrl: String,
   quantity: Number,
   bestSeller: Boolean,
+  category:  String,
+
 });
 
 const DollModel = mongoose.model("DollToy", dollSchema, "DollToy");

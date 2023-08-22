@@ -86,6 +86,25 @@ router.post('/search', async (req, res) => {
         res.redirect('/doll');
     }
 });
+//sort
+router.get('/sort', async (req, res) => {
+    try {
+      let dolls;
+      const sortOption = req.query.sort;
+  
+      if (sortOption === 'asc') {
+        dolls = await DollModel.find().sort({ price: 1 });
+      } else if (sortOption === 'desc') {
+        dolls = await DollModel.find().sort({ price: -1 });
+      } else {
+        dolls = await DollModel.find();
+      }
+  
+      res.render('dolls/dollslist', { dolls });
+    } catch (error) {
+      res.status(500).send(error.message);
+    }});
+
 
  
 
