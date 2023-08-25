@@ -92,11 +92,11 @@ router.get('/sort', async (req, res) => {
       const sortOption = req.query.sort;
   
       if (sortOption === 'asc') {
-        dolls = await DollModel.find().sort({ price: 1 });
+        legos = await LegoModel.find().sort({ price: 1 });
       } else if (sortOption === 'desc') {
-        dolls = await DollModel.find().sort({ price: -1 });
+        legos = await LegoModel.find().sort({ price: -1 });
       } else {
-        dolls = await DollModel.find();
+        legos = await LegoModel.find();
       }
   
       res.render('legos/legos/legoslist', { legos });
