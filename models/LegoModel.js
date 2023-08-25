@@ -6,10 +6,7 @@ var legoSchema =  mongoose.Schema({
   imageUrl: String,
   quantity: Number,
   bestSeller: Boolean,
-  category: {
-    type: String,
-    enum: ["babydoll", "babydoll2", "babydoll3"]
-  }
+  category:  String,
 });
 
 const LegoModel = mongoose.model('LegoToy', legoSchema, 'LegoToy');

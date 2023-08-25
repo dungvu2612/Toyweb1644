@@ -34,6 +34,10 @@
         <label class="h5 text-dark" for="">Quantity</label>
         <input class="form-control" type="number" name="quantity" value="{{ doll.quantity }}" required>
       </div>
+         <div class="form-group mt-3">
+        <label class="h5 text-dark" for="">Category</label>
+        <input class="form-control" type="text" name="category" value="{{ doll.category }}" required>
+      </div>
       <div class="form-group mt-3">
         <label class="h5 text-dark" for="">Best Seller</label><br>
         <input type="radio" name="bestSeller" value="true" {{#if doll.bestSeller}}checked{{/if}}>

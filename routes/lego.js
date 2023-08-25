@@ -85,4 +85,23 @@ router.post('/search', async (req, res) => {
   }
 });
 
+//sort
+router.get('/sort', async (req, res) => {
+    try {
+      let legos;
+      const sortOption = req.query.sort;
+  
+      if (sortOption === 'asc') {
+        dolls = await DollModel.find().sort({ price: 1 });
+      } else if (sortOption === 'desc') {
+        dolls = await DollModel.find().sort({ price: -1 });
+      } else {
+        dolls = await DollModel.find();
+      }
+  
+      res.render('legos/legos/legoslist', { legos });
+    } catch (error) {
+      res.status(500).send(error.message);
+    }});
+
 module.exports = router;
